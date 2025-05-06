@@ -23,11 +23,20 @@ There were many challenges that we faced in the implementation of our device. Ou
 Overall, our project could have benefitted from streamlining the amount of features but during its conception we were unaware of the true time crunch we would have. We should have stuck to fewer sensors and fewer actuators but were nervous about the project not being complex enough without considering that we could have added more features after the first ones were implemented. We also should have picked ICs based more off of their documentation and the ability to be able to quickly and effectively write drivers for them. This would have allowed us more time to focus on the mechanical aspects of the project instead of debugging the firmware until the last minute. If doing this device again, it would be helpful to just focus on the solar power aspect and not the battery management aspect. This way we could have ensured that this worked like how we wanted to and then maybe at the battery management after since the sensor and the actuator were both off the PCB. 
 
 ### Next Steps and Takaways
-In order to finish this project 
+Through this class, we learned the importance of component selection. It is not just choosing a component that could work; it should also be choosing components that are feasible given time constraints and one's own knowledge and ability. When taking this project further, it would help to switch to new sensors with better documentation and to streamline the device further.
+
+### Project Links
+#### Node Red URL
+http://20.185.54.69:1880/
+
+#### Final PCB on Altium365
+
 
 ## 3. Hardware & Software Requirements
 ### Hardware Requirements
-HRS 01 - SAMW25 shall be our main microcontroller for all processing. The SAMD21 will be our microcontroller and the WINC1500 WiFi chip will facilitate all of our WiFi connections.
+HRS 01 - SAMW25 shall be our main microcontroller for all processing. The SAMD21 will be our microcontroller and the WINC1500 WiFi chip will facilitate all of our WiFi connections. 
+<br>
+   *We hit this requirement by using the SAMD21 and the WINC1500 Wifi chip on our PCB
 
 HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep track of temperature of the battery pack via I2C with an accuracy of +/- 0.5C
 
