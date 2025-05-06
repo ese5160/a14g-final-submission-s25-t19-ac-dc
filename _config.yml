@@ -1,0 +1,6 @@
+title: SOLAR POWERED BATTERY MANAGEMENT SYSTEM
+description: "ESE5160 Final Project - Team: AC-DC"
+theme: jekyll-theme-tactile
+remote_theme: pages-themes/tactile@v0.2.0
+plugins:
+- jekyll-remote-theme
