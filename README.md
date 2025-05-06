@@ -30,13 +30,13 @@ Through this class, we learned the importance of component selection. It is not 
 http://20.185.54.69:1880/
 
 #### Final PCB on Altium365
-
+https://upenn-eselabs.365.altium.com/designs/53786B09-9B1F-4C56-985B-DD8DCF656A41#design
 
 ## 3. Hardware & Software Requirements
 ### Hardware Requirements
 HRS 01 - SAMW25 shall be our main microcontroller for all processing. The SAMD21 will be our microcontroller and the WINC1500 WiFi chip will facilitate all of our WiFi connections. 
 <br>
-   *We hit this requirement by using the SAMD21 and the WINC1500 Wifi chip on our PCB
+&nbsp; *We hit this requirement by using the SAMD21 and the WINC1500 Wifi chip on our PCB.*
 
 HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep track of temperature of the battery pack via I2C with an accuracy of +/- 0.5C
 
@@ -51,14 +51,22 @@ HRS 06 - L298N motor driver or equivalent shall be used for driving the servo mo
 HRS 07 - Miniature 5V Cooling Fan with Molex PicoBlade Connector for cooling of the battery pack when it overheats. It shall lower the temperature of the battery by at least 10 degrees.
 
 HRS 08 - DC-DC converter/Maximum power point tracker converter to be designed on PCB for solar energy conversion to be stored in our battery pack.
+<br>
+&nbsp; *We hit this requirement by using the BQ24120 IC from Texas Instruments on our PCB for the conversion from solar power to voltage for our battery.*
 
 HRS 09 - Kitronik SOLAR PANEL Model NO: PG-120X62-001 or equivalent solar panel shall be used to charge the battery pack.
+<br>
+&nbsp; *We hit this requirement by using the Voltaic solar panel (MPN: PRT-18726) to charge our battery through the battery charging IC.*
 
 HRS 10 - Four photodiodes shall be used to detect the intensity of the light being shined on the solar panel. The angles for the dual axis rotation will be calculated using the irradiance on each of the four photodiodes, two for each axis.
+<br>
+&nbsp; *We did not hit this requirement as we decided to use 2 photodiodes placed on the right and lefthand side of the solar panel instead due to time constraints.*
 
 HRS 11 - An LED shall be used to display if the battery voltage is below 2V.
 
 HRS 12 - A 3.7V Li-Ion battery shall be the main battery that will be monitored. It will be used to power the DC motor via a motor driver.
+<br>
+&nbsp; *We partially hit this requirement by using the Adafruit Li-Ion battery (MPN: 1781) as our peripheral battery. However, we were not able to use this battery to power the DC motor, as it was intended for demonstration, due to time constraints.*
 
 HRS 13 - A 3.7V Li-Ion battery shall be used to power the SAMW25 microcontroller and all sensors.
 
@@ -80,6 +88,8 @@ SRS 07 - The light intensity from the photodiodes shall be sent and interpreted 
 SRS 08 - The light intensity data shall be used in a feedback loop to correct the position of the solar panel toward a higher intensity of light every 100 milliseconds coinciding with the collection of new data.
 
 SRS 09 - L298N motor driver shall be used for driving the servo motor with varying speed and direction through PWM manipulation.
+<br>
+&nbsp; *We hit this requirement by using our motor driver and then manipulating the PWM of the servo through the HAL.*
 
 ## 4. Project Photos & Screenshots
 
