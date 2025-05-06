@@ -97,7 +97,7 @@ SRS 09 - L298N motor driver shall be used for driving the servo motor with varyi
 ||||
 |-|-|-|
 | ![final project]() | ![pcb top]() | ![pcb bottom]() |
-| ![thermal camera](images/thermal_image_1.jpeg) | ![altium board 2D](twod_rendering.png) | ![altium board 3D](threed_rendering.png) |
+| ![thermal camera](images/thermal_image_1.jpeg) | ![altium board 2D](images/twod_rendering.png) | ![altium board 3D](images/threed_rendering.png) |
 | ![node-red design]() | ![node-red backend]() | ![system block diagram]()  |
 
 ## Codebase
