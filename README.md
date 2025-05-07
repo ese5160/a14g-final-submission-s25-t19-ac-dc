@@ -59,6 +59,9 @@ HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep tra
 HRS 03 - INA219 or equivalent voltage sensor shall be used to measure the voltage of the battery pack via I2C with an accuracy of +/- 0.1V
 
 HRS 04 - INAx180 or equivalent current sensor shall be used to measure the current of our battery pack with an accuracy of +/- 0.1A
+<br>
+&nbsp; *We chose to not implement this requirement. We realized that the current that would be measured is not actually the current through the battery. Current needs to be measured in series with the device. However, voltage needs to be measured parallel to the device. Our sensor was placed in parallel with the device and therefore would only be able to accurately measure the voltage and not the current of the battery.*
+![image](https://github.com/user-attachments/assets/b85653be-6761-4af8-a489-a43e1a31b033)
 
 HRS 05 - Adafruit 2941 servo motor or equivalent shall be used to rotate the solar panel fixed onto the gimbal. It shall move 180 degrees laterally and longitudinally.
 <br>
