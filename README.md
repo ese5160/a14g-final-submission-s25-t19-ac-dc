@@ -85,11 +85,11 @@ HRS 08 - DC-DC converter/Maximum power point tracker converter to be designed on
 
 HRS 09 - Kitronik SOLAR PANEL Model NO: PG-120X62-001 or equivalent solar panel shall be used to charge the battery pack.
 <br>
-&nbsp; *We hit this requirement by using the Voltaic solar panel (MPN: PRT-18726) to charge our battery through the battery charging IC.*
+&nbsp; *We hit this requirement by using the Voltaic solar panel (MPN: PRT-18726) to charge our battery through the battery charging IC. As stated above in HRS 08 we were able to use this solar panel/battery charging IC system to change the bus voltage across the battery.*
 
 HRS 10 - Four photodiodes shall be used to detect the intensity of the light being shined on the solar panel. The angles for the dual axis rotation will be calculated using the irradiance on each of the four photodiodes, two for each axis.
 <br>
-&nbsp; *We did not hit this requirement as we decided to use 2 photodiodes placed on the right and lefthand side of the solar panel instead due to time constraints.*
+&nbsp; *We did not hit this requirement as we decided to use 2 photodiodes placed on the right and lefthand side of the solar panel instead due to time constraints. These photodiodes also were not able to accuratly send data to our microcontroller and therefore we could not use them to change the position of the servo motor.*
 
 HRS 11 - An LED shall be used to display if the battery voltage is below 2V.
 <br>
