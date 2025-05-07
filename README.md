@@ -50,6 +50,9 @@ HRS 01 - SAMW25 shall be our main microcontroller for all processing. The SAMD21
 &nbsp; *We hit this requirement by using the SAMD21 and the WINC1500 Wifi chip on our PCB.*
 
 HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep track of temperature of the battery pack via I2C with an accuracy of +/- 0.5C
+`<br>`
+&nbsp; *We hit this requirement by using the BMP388 temperature sensor and taking measurements through I2C. We measured a temperature of 25C and the thermal gun measured 24.5C.*
+
 
 HRS 03 - INA219 or equivalent voltage sensor shall be used to measure the voltage of the battery pack via I2C with an accuracy of +/- 0.1V
 
@@ -119,7 +122,7 @@ SRS 06 - All sensor data shall be sent to the user interface from the SAMW25 mic
 
 SRS 07 - The light intensity from the photodiodes shall be sent and interpreted by the SAMW25 microcontroller updating every 100 milliseconds +/- 10 milliseconds.
 
-&nbsp; *We partially hit this requirement*
+&nbsp; *We partially hit this requirement. We had trouble configuring the 4C ADC IC that we had configured onboard. We were able to read from the desired register. However, we were getting values that did not entirely make sense. When the input and output pins were shorted together, effectively making a wire and showing that the "light" is high, we were able to get the maxiumum value (3300mV). Additionally, when we unplugged the pins, effectively making an open circuit and showing that the "light" is low, we were able to get a maximum low value of around 20mV. However, when connecting this to an actual photoresistor, the values did not change depending on the amount of light that was shined on it.*
 
 SRS 08 - The light intensity data shall be used in a feedback loop to correct the position of the solar panel toward a higher intensity of light every 100 milliseconds coinciding with the collection of new data.
 
