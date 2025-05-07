@@ -89,6 +89,10 @@ HRS 12 - A 3.7V Li-Ion battery shall be the main battery that will be monitored.
 &nbsp; *We partially hit this requirement by using the Adafruit Li-Ion battery (MPN: 1781) as our peripheral battery. However, we were not able to use this battery to power the DC motor, as it was intended for demonstration, due to time constraints.*
 
 HRS 13 - A 3.7V Li-Ion battery shall be used to power the SAMW25 microcontroller and all sensors.
+<br>
+&nbsp; *We did not hit this requirement as our battery is only able to power some of the compoenents by itself. For example, it is able to power the cooling fan but not the servo or the LEDs.*
+![image](images/IMG_0271.JPG)
+![image](images/IMG_0272.JPG)
 
 ### Software Requirements
 
