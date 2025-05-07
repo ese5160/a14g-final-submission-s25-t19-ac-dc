@@ -51,6 +51,8 @@ HRS 05 - Adafruit 2941 servo motor or equivalent shall be used to rotate the sol
 ![servo_image2](images/servo_image.JPG)
 
 HRS 06 - L298N motor driver or equivalent shall be used for driving the servo motor.
+<br>
+&nbsp; *We hit this requirement as we were using an onboard servo motor driver. When we connected the servo directly to power, we were able to drive it through this servo motor driver.*
 
 HRS 07 - Miniature 5V Cooling Fan with Molex PicoBlade Connector for cooling of the battery pack when it overheats. It shall lower the temperature of the battery by at least 10 degrees.
 
@@ -67,6 +69,11 @@ HRS 10 - Four photodiodes shall be used to detect the intensity of the light bei
 &nbsp; *We did not hit this requirement as we decided to use 2 photodiodes placed on the right and lefthand side of the solar panel instead due to time constraints.*
 
 HRS 11 - An LED shall be used to display if the battery voltage is below 2V.
+<br>
+&nbsp; *We partially hit this requirement as the onboard LEDs turn on when connected through an external power supply but not when connected through the supply battery. The dashboard LED on our Node Red interface did turn on when the voltage reading from the sensor is low. We picked a new threshold of 600mV now since our voltage sensor rarely read above 700mV.*
+![image](https://github.com/user-attachments/assets/0eae021f-2494-4a6d-a2d0-475c84fa156c)
+
+
 
 HRS 12 - A 3.7V Li-Ion battery shall be the main battery that will be monitored. It will be used to power the DC motor via a motor driver.
 <br>
