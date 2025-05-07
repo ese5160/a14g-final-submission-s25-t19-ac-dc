@@ -48,7 +48,7 @@ HRS 05 - Adafruit 2941 servo motor or equivalent shall be used to rotate the sol
 <br>
 &nbsp; *We did not hit this requirement. When testing our servo motor being powered through an external power supply the output voltage the servo would be attached to is 6V. However, when we power it with the external battery, we are only getting 1.5V which is not enough to power the servo.*
 ![servo_image1](images/IMG_0266.JPG)
-![servo_image2](images/servo_image.jpg)
+![servo_image2](images/servo_image.JPG)
 
 HRS 06 - L298N motor driver or equivalent shall be used for driving the servo motor.
 
