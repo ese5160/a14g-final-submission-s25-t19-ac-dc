@@ -52,7 +52,8 @@ HRS 01 - SAMW25 shall be our main microcontroller for all processing. The SAMD21
 HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep track of temperature of the battery pack via I2C with an accuracy of +/- 0.5C
 `<br>`
 &nbsp; *We hit this requirement by using the BMP388 temperature sensor and taking measurements through I2C. We measured a temperature of 25C and the thermal gun measured 24.5C.*
-
+![temp_image1](images/FLIR1000001.jpeg)
+![temp_image2](images/
 
 HRS 03 - INA219 or equivalent voltage sensor shall be used to measure the voltage of the battery pack via I2C with an accuracy of +/- 0.1V
 
