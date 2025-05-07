@@ -73,8 +73,6 @@ HRS 11 - An LED shall be used to display if the battery voltage is below 2V.
 &nbsp; *We partially hit this requirement as the onboard LEDs turn on when connected through an external power supply but not when connected through the supply battery. The dashboard LED on our Node Red interface did turn on when the voltage reading from the sensor is low. We picked a new threshold of 600mV now since our voltage sensor rarely read above 700mV.*
 ![image](https://github.com/user-attachments/assets/0eae021f-2494-4a6d-a2d0-475c84fa156c)
 
-
-
 HRS 12 - A 3.7V Li-Ion battery shall be the main battery that will be monitored. It will be used to power the DC motor via a motor driver.
 <br>
 &nbsp; *We partially hit this requirement by using the Adafruit Li-Ion battery (MPN: 1781) as our peripheral battery. However, we were not able to use this battery to power the DC motor, as it was intended for demonstration, due to time constraints.*
