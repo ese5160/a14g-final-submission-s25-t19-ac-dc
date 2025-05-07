@@ -103,6 +103,7 @@ SRS 09 - L298N motor driver shall be used for driving the servo motor with varyi
 ## Codebase
 
 - A link to your final embedded C firmware codebases
+  https://github.com/ese5160/final-project-t19-ac-dc.git
 - A link to your Node-RED dashboard code
-- Links to any other software required for the functionality of your device
+  http://20.185.54.69:1880/#flow/cebf7bed2b101f7e
 
