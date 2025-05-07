@@ -89,13 +89,12 @@ HRS 12 - A 3.7V Li-Ion battery shall be the main battery that will be monitored.
 &nbsp; *We partially hit this requirement by using the Adafruit Li-Ion battery (MPN: 1781) as our peripheral battery. However, we were not able to use this battery to power the DC motor, as it was intended for demonstration, due to time constraints.*
 
 HRS 13 - A 3.7V Li-Ion battery shall be used to power the SAMW25 microcontroller and all sensors.
-<br>
+`<br>`
 &nbsp; *We did not hit this requirement as our battery is only able to power some of the compoenents by itself. For example, it is able to power the cooling fan but not the servo or the LEDs.*
 ![image](images/IMG_0271.JPG)
 ![image](images/IMG_0272.JPG)
 
 ### Software Requirements
-
 
 SRS 01 - BMP or equivalent temperature sensor shall send data over I2C to the microcontroller once per 0.5 seconds +/- 100 milliseconds.
 
@@ -115,19 +114,19 @@ SRS 04 - The voltage sensor shall actuate an LED if it is below 2V (after the in
 
 SRS 06 - All sensor data shall be sent to the user interface from the SAMW25 microcontroller using WiFi, updating once per 0.5 seconds +/- 100 milliseconds.
 
-&nbsp; *We partially hit this requirement by using NODERED and MQTT to send data over WiFi and display to a UI via NODERED. We did face hiccups for the voltage sensor values being displayed but we were able to toggle the fan via NODERED*
+&nbsp; *We partially hit this requirement by using NODERED and MQTT to send data over WiFi and display to a UI via NODERED. We did face hiccups for the voltage sensor values being displayed but we were able to toggle the fan via NODERED.*
 
 SRS 07 - The light intensity from the photodiodes shall be sent and interpreted by the SAMW25 microcontroller updating every 100 milliseconds +/- 10 milliseconds.
 
-&nbsp; *We partially hit this requirement*
+&nbsp; *We partially hit this requirement. We were able to get measurements from multiple photodiodes at the same time via I2C but the values seemed to remain stagnant or give garbage values which were of no use when trying to compute the difference between 2 channels.*
 
 SRS 08 - The light intensity data shall be used in a feedback loop to correct the position of the solar panel toward a higher intensity of light every 100 milliseconds coinciding with the collection of new data.
 
-&nbsp; *We hit this requirement by using our motor driver and then manipulating the PWM of the servo through the HAL.*
+&nbsp; *We did not hit this requirement due to the photodiode giving us garbage values.*
 
 SRS 09 - L298N motor driver shall be used for driving the servo motor with varying speed and direction through PWM manipulation.
 
-&nbsp; *We hit this requirement by using our motor driver and then manipulating the PWM of the servo through the HAL.*
+&nbsp; *We hit this requirement by using a L9110S motor driver but unfortunately we fried the motor driver and we were not able to use it for the demo.*
 
 ## 4. Project Photos & Screenshots
 
