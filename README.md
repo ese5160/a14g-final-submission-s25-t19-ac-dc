@@ -53,7 +53,7 @@ HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep tra
 `<br>`
 &nbsp; *We hit this requirement by using the BMP388 temperature sensor and taking measurements through I2C. We measured a temperature of 25C and the thermal gun measured 24.5C.*
 ![temp_image1](images/FLIR1000001.jpeg)
-![temp_image2](images/
+![temp_image2](images/IMG_0285.JPG)
 
 HRS 03 - INA219 or equivalent voltage sensor shall be used to measure the voltage of the battery pack via I2C with an accuracy of +/- 0.1V
 
@@ -103,7 +103,7 @@ HRS 13 - A 3.7V Li-Ion battery shall be used to power the SAMW25 microcontroller
 
 SRS 01 - BMP or equivalent temperature sensor shall send data over I2C to the microcontroller once per 0.5 seconds +/- 100 milliseconds.
 
-&nbsp; *We hit this requirement by using the BMP388 temperature and pressure sensor to send the temperature values over I2C.*
+&nbsp; *We partially hit this requirement by using the BMP388 temperature and pressure sensor to send the temperature values over I2C. We would get very fast values when using the CLI commands, however we were not able to implement it to automatically take readings otherwise due to time constraints.*
 
 SRS 02 - The temperature data shall actuate a fan if the temperature is above 20C.
 
