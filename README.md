@@ -14,7 +14,7 @@ Our device is a sun tracking solar panel with a built in battery management syst
 
 ### Device Functionality
 The device works by having a solar panel with photodiodes attached. The photodiodes will give information detailing where the maximum light is coming from. There will be a servo motor that will move to change the position of the solar panel to face the direction of the most sunlight. This solar energy will then go into our battery charging IC and through a voltage/current sensor, both placed on our PCB. This will then go into our peripheral battery where it will be charged. As the battery is charging, there will be an indicator LED which shows the user when the voltage is below a certain threshold. The cooling fan and temperature sensor will be attached/placed in close proximity to the battery to allow them to be the most useful and accurate. A simple DC motor will be used after the battery has been charged to display the functionality of the charging circuit.
-![image](https://github.com/user-attachments/assets/fa0885e3-cc62-4675-a587-a9de542ac6b0)
+![image](images/block_diagram.png)
 
 ### Challenges
 There were many challenges that we faced in the implementation of our device. Our project included many different sensors: a voltage sensor, four photodiodes going into a four-channel ADC MUX, and a temperature sensor. Due to the limited time we had for firmware drivers, and the intricacies of our ICs, it took a lot of time to finish and debug these drivers. Our ADC MUX in particular was very intricate with not much helpful documentation on how any particular configuration should look. It included several different modes including manual, automatic, single read, multiple read, reading from multiple registers at one time etc. The datasheet did not provide a lot of information on what these modes actually did and how a typical implementation would utilize them or configure them. Therefore, we spent many days debugging this which set us back on other drivers. We also had many actuators including a DC motor, a servo, a cooling fan and an LED. Although these actuator drivers were much easier to configure, we were then left with very little time to work on them. 
@@ -98,7 +98,7 @@ SRS 09 - L298N motor driver shall be used for driving the servo motor with varyi
 |-|-|-|
 | ![final project]() | ![pcb top](images/IMG_0260.JPG) | ![pcb bottom](images/IMG_0263.JPG) |
 | ![thermal camera](images/thermal_image_1.jpeg) | ![altium board 2D](images/twod_rendering.png) | ![altium board 3D](images/threed_rendering.png) |
-| ![node-red design](images/node_red_frontend.png) | ![node-red backend](images/node_red_backend.png) | ![system block diagram]()  |
+| ![node-red design](images/node_red_frontend.png) | ![node-red backend](images/node_red_backend.png) | ![system block diagram](images/block_diagram.png)  |
 
 ## Codebase
 
