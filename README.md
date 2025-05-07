@@ -45,6 +45,8 @@ HRS 03 - INA219 or equivalent voltage sensor shall be used to measure the voltag
 HRS 04 - INAx180 or equivalent current sensor shall be used to measure the current of our battery pack with an accuracy of +/- 0.1A
 
 HRS 05 - Adafruit 2941 servo motor or equivalent shall be used to rotate the solar panel fixed onto the gimbal. It shall move 180 degrees laterally and longitudinally.
+<br>
+&nbsp; *We did not hit this requirement. When testing our servo motor being powered through an external power supply the output voltage the servo would be attached to is 6V. However, when we power it with the external battery, we are only getting 1.5V which is not enough to power the servo.*
 
 HRS 06 - L298N motor driver or equivalent shall be used for driving the servo motor.
 
@@ -97,7 +99,7 @@ SRS 09 - L298N motor driver shall be used for driving the servo motor with varyi
 ||||
 |-|-|-|
 | ![final project]() | ![pcb top](images/IMG_0260.JPG) | ![pcb bottom](images/IMG_0263.JPG) |
-| ![thermal camera](images/thermal_image_1.jpeg) | ![altium board 2D](images/twod_rendering.png) | ![altium board 3D](images/threed_rendering.png) |
+| ![thermal camera](images/thermal_image_1.jpeg | width=100) | ![altium board 2D](images/twod_rendering.png) | ![altium board 3D](images/threed_rendering.png) |
 | ![node-red design](images/node_red_frontend.png) | ![node-red backend](images/node_red_backend.png) | ![system block diagram](images/block_diagram.png)  |
 
 ## Codebase
