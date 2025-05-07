@@ -71,13 +71,17 @@ HRS 05 - Adafruit 2941 servo motor or equivalent shall be used to rotate the sol
 
 HRS 06 - L298N motor driver or equivalent shall be used for driving the servo motor.
 <br>
-&nbsp; *We hit this requirement as we were using an onboard servo motor driver. When we connected the servo directly to power, we were able to drive it through this servo motor driver.*
+&nbsp; *We hit this requirement as we were using an onboard servo motor driver. When we connected the servo directly to power, we were able to drive it through this servo motor driver. The issues with not being able to drive the servo were because of the lack of power and not the motor driver itself.*
 
 HRS 07 - Miniature 5V Cooling Fan with Molex PicoBlade Connector for cooling of the battery pack when it overheats. It shall lower the temperature of the battery by at least 10 degrees.
+<br>
+&nbsp; *We did not hit this requirement. The battery itself does not actually heat up that much. The maximum temperature that it gets to is about 25C. We could set the threshold of the fan to be lower than 25C so that it will turn on but due to the nature of this being a protoype how the fan is not powerful enough, it is unrealistic for the fan to decrease the temperature of the battery by 10C especially considering the battery stays at room temperature.*
 
 HRS 08 - DC-DC converter/Maximum power point tracker converter to be designed on PCB for solar energy conversion to be stored in our battery pack.
 <br>
-&nbsp; *We hit this requirement by using the BQ24120 IC from Texas Instruments on our PCB for the conversion from solar power to voltage for our battery.*
+&nbsp; *We hit this requirement by using the BQ24120 IC from Texas Instruments on our PCB for the conversion from solar power to voltage for our battery. This charging IC is able to get the bus voltage of our battery from 600mV to 3200mV*
+![IMG_0287](https://github.com/user-attachments/assets/7c1ffa9d-963f-44a7-a858-d380b887f378)
+![IMG_0288](https://github.com/user-attachments/assets/106c879b-700d-459e-b08e-b4934d0f1966)
 
 HRS 09 - Kitronik SOLAR PANEL Model NO: PG-120X62-001 or equivalent solar panel shall be used to charge the battery pack.
 <br>
