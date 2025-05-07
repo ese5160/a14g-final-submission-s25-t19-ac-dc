@@ -46,14 +46,13 @@ https://upenn-eselabs.365.altium.com/designs/53786B09-9B1F-4C56-985B-DD8DCF656A4
 ### Hardware Requirements
 
 HRS 01 - SAMW25 shall be our main microcontroller for all processing. The SAMD21 will be our microcontroller and the WINC1500 WiFi chip will facilitate all of our WiFi connections.
-`<br>`
+<br>
 &nbsp; *We hit this requirement by using the SAMD21 and the WINC1500 Wifi chip on our PCB.*
 
 HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep track of temperature of the battery pack via I2C with an accuracy of +/- 0.5C
-`<br>`
+<br>
 &nbsp; *We hit this requirement by using the BMP388 temperature sensor and taking measurements through I2C. We measured a temperature of 25C and the thermal gun measured 24.5C.*
-`<br>`
-
+<br>
 ![temp_image1](images/FLIR1000001.jpeg)
 ![temp_image2](images/IMG_0285.JPG)
 
@@ -62,31 +61,31 @@ HRS 03 - INA219 or equivalent voltage sensor shall be used to measure the voltag
 HRS 04 - INAx180 or equivalent current sensor shall be used to measure the current of our battery pack with an accuracy of +/- 0.1A
 
 HRS 05 - Adafruit 2941 servo motor or equivalent shall be used to rotate the solar panel fixed onto the gimbal. It shall move 180 degrees laterally and longitudinally.
-`<br>`
+<br>
 &nbsp; *We did not hit this requirement. When testing our servo motor being powered through an external power supply the output voltage the servo would be attached to is 6V. However, when we power it with the external battery, we are only getting 1.5V which is not enough to power the servo.*
 ![servo_image1](images/IMG_0266.JPG)
 ![servo_image2](images/servo_image.JPG)
 
 HRS 06 - L298N motor driver or equivalent shall be used for driving the servo motor.
-`<br>`
+<br>
 &nbsp; *We hit this requirement as we were using an onboard servo motor driver. When we connected the servo directly to power, we were able to drive it through this servo motor driver.*
 
 HRS 07 - Miniature 5V Cooling Fan with Molex PicoBlade Connector for cooling of the battery pack when it overheats. It shall lower the temperature of the battery by at least 10 degrees.
 
 HRS 08 - DC-DC converter/Maximum power point tracker converter to be designed on PCB for solar energy conversion to be stored in our battery pack.
-`<br>`
+<br>
 &nbsp; *We hit this requirement by using the BQ24120 IC from Texas Instruments on our PCB for the conversion from solar power to voltage for our battery.*
 
 HRS 09 - Kitronik SOLAR PANEL Model NO: PG-120X62-001 or equivalent solar panel shall be used to charge the battery pack.
-`<br>`
+<br>
 &nbsp; *We hit this requirement by using the Voltaic solar panel (MPN: PRT-18726) to charge our battery through the battery charging IC.*
 
 HRS 10 - Four photodiodes shall be used to detect the intensity of the light being shined on the solar panel. The angles for the dual axis rotation will be calculated using the irradiance on each of the four photodiodes, two for each axis.
-`<br>`
+<br>
 &nbsp; *We did not hit this requirement as we decided to use 2 photodiodes placed on the right and lefthand side of the solar panel instead due to time constraints.*
 
 HRS 11 - An LED shall be used to display if the battery voltage is below 2V.
-`<br>`
+<br>
 &nbsp; *We partially hit this requirement as the onboard LEDs turn on when connected through an external power supply but not when connected through the supply battery. The dashboard LED on our Node Red interface did turn on when the voltage reading from the sensor is low. We picked a new threshold of 600mV now since our voltage sensor rarely read above 700mV.*
 ![image](https://github.com/user-attachments/assets/0eae021f-2494-4a6d-a2d0-475c84fa156c)
 
