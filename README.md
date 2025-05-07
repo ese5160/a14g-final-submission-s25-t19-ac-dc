@@ -80,7 +80,8 @@ HRS 12 - A 3.7V Li-Ion battery shall be the main battery that will be monitored.
 HRS 13 - A 3.7V Li-Ion battery shall be used to power the SAMW25 microcontroller and all sensors.
 <br>
 &nbsp; *We did not hit this requirement as our battery is only able to power some of the compoenents by itself. For example, it is able to power the cooling fan but not the servo or the LEDs.*
-
+![image](images/IMG_0271.JPG)
+![image](images/IMG_0272.JPG)
 
 ### Software Requirements
 SRS 01 - MCP9808-E/MS or equivalent temperature sensor shall send data over I2C to the microcontroller once per 0.5 seconds +/- 100 milliseconds.
