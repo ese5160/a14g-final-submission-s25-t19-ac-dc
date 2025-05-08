@@ -46,41 +46,53 @@ https://upenn-eselabs.365.altium.com/designs/53786B09-9B1F-4C56-985B-DD8DCF656A4
 ### Hardware Requirements
 
 HRS 01 - SAMW25 shall be our main microcontroller for all processing. The SAMD21 will be our microcontroller and the WINC1500 WiFi chip will facilitate all of our WiFi connections.
-`<br>`
+<br>
 &nbsp; *We hit this requirement by using the SAMD21 and the WINC1500 Wifi chip on our PCB.*
 
 HRS 02 - MCP9808-E/MS or equivalent temperature sensor shall be used to keep track of temperature of the battery pack via I2C with an accuracy of +/- 0.5C
+<br>
+&nbsp; *We hit this requirement by using the BMP388 temperature sensor and taking measurements through I2C. We measured a temperature of 25C and the thermal gun measured 24.5C.*
+<br>
+![temp_image1](images/FLIR1000001.jpeg)
+![temp_image2](images/IMG_0285.JPG)
 
 HRS 03 - INA219 or equivalent voltage sensor shall be used to measure the voltage of the battery pack via I2C with an accuracy of +/- 0.1V
 
 HRS 04 - INAx180 or equivalent current sensor shall be used to measure the current of our battery pack with an accuracy of +/- 0.1A
+<br>
+&nbsp; *We chose to not implement this requirement. We realized that the current that would be measured is not actually the current through the battery. Current needs to be measured in series with the device. However, voltage needs to be measured parallel to the device. Our sensor was placed in parallel with the device and therefore would only be able to accurately measure the voltage and not the current of the battery.*
+![image](https://github.com/user-attachments/assets/b85653be-6761-4af8-a489-a43e1a31b033)
 
 HRS 05 - Adafruit 2941 servo motor or equivalent shall be used to rotate the solar panel fixed onto the gimbal. It shall move 180 degrees laterally and longitudinally.
-`<br>`
+<br>
 &nbsp; *We did not hit this requirement. When testing our servo motor being powered through an external power supply the output voltage the servo would be attached to is 6V. However, when we power it with the external battery, we are only getting 1.5V which is not enough to power the servo.*
 ![servo_image1](images/IMG_0266.JPG)
 ![servo_image2](images/servo_image.JPG)
 
 HRS 06 - L298N motor driver or equivalent shall be used for driving the servo motor.
-`<br>`
-&nbsp; *We hit this requirement as we were using an onboard servo motor driver. When we connected the servo directly to power, we were able to drive it through this servo motor driver.*
+<br>
+&nbsp; *We hit this requirement as we were using an onboard servo motor driver. When we connected the servo directly to power, we were able to drive it through this servo motor driver. The issues with not being able to drive the servo were because of the lack of power and not the motor driver itself.*
 
 HRS 07 - Miniature 5V Cooling Fan with Molex PicoBlade Connector for cooling of the battery pack when it overheats. It shall lower the temperature of the battery by at least 10 degrees.
+<br>
+&nbsp; *We did not hit this requirement. The battery itself does not actually heat up that much. The maximum temperature that it gets to is about 25C. We could set the threshold of the fan to be lower than 25C so that it will turn on but due to the nature of this being a protoype how the fan is not powerful enough, it is unrealistic for the fan to decrease the temperature of the battery by 10C especially considering the battery stays at room temperature.*
 
 HRS 08 - DC-DC converter/Maximum power point tracker converter to be designed on PCB for solar energy conversion to be stored in our battery pack.
-`<br>`
-&nbsp; *We hit this requirement by using the BQ24120 IC from Texas Instruments on our PCB for the conversion from solar power to voltage for our battery.*
+<br>
+&nbsp; *We hit this requirement by using the BQ24120 IC from Texas Instruments on our PCB for the conversion from solar power to voltage for our battery. This charging IC is able to get the bus voltage of our battery from 600mV to 3200mV*
+![IMG_0287](https://github.com/user-attachments/assets/7c1ffa9d-963f-44a7-a858-d380b887f378)
+![IMG_0288](https://github.com/user-attachments/assets/106c879b-700d-459e-b08e-b4934d0f1966)
 
 HRS 09 - Kitronik SOLAR PANEL Model NO: PG-120X62-001 or equivalent solar panel shall be used to charge the battery pack.
-`<br>`
-&nbsp; *We hit this requirement by using the Voltaic solar panel (MPN: PRT-18726) to charge our battery through the battery charging IC.*
+<br>
+&nbsp; *We hit this requirement by using the Voltaic solar panel (MPN: PRT-18726) to charge our battery through the battery charging IC. As stated above in HRS 08 we were able to use this solar panel/battery charging IC system to change the bus voltage across the battery.*
 
 HRS 10 - Four photodiodes shall be used to detect the intensity of the light being shined on the solar panel. The angles for the dual axis rotation will be calculated using the irradiance on each of the four photodiodes, two for each axis.
-`<br>`
-&nbsp; *We did not hit this requirement as we decided to use 2 photodiodes placed on the right and lefthand side of the solar panel instead due to time constraints.*
+<br>
+&nbsp; *We did not hit this requirement as we decided to use 2 photodiodes placed on the right and lefthand side of the solar panel instead due to time constraints. These photodiodes also were not able to accuratly send data to our microcontroller and therefore we could not use them to change the position of the servo motor.*
 
 HRS 11 - An LED shall be used to display if the battery voltage is below 2V.
-`<br>`
+<br>
 &nbsp; *We partially hit this requirement as the onboard LEDs turn on when connected through an external power supply but not when connected through the supply battery. The dashboard LED on our Node Red interface did turn on when the voltage reading from the sensor is low. We picked a new threshold of 600mV now since our voltage sensor rarely read above 700mV.*
 ![image](https://github.com/user-attachments/assets/0eae021f-2494-4a6d-a2d0-475c84fa156c)
 
@@ -98,7 +110,7 @@ HRS 13 - A 3.7V Li-Ion battery shall be used to power the SAMW25 microcontroller
 
 SRS 01 - BMP or equivalent temperature sensor shall send data over I2C to the microcontroller once per 0.5 seconds +/- 100 milliseconds.
 
-&nbsp; *We hit this requirement by using the BMP388 temperature and pressure sensor to send the temperature values over I2C.*
+&nbsp; *We partially hit this requirement by using the BMP388 temperature and pressure sensor to send the temperature values over I2C. We would get very fast values when using the CLI commands, however we were not able to implement it to automatically take readings otherwise due to time constraints.*
 
 SRS 02 - The temperature data shall actuate a fan if the temperature is above 20C.
 
@@ -118,7 +130,7 @@ SRS 06 - All sensor data shall be sent to the user interface from the SAMW25 mic
 
 SRS 07 - The light intensity from the photodiodes shall be sent and interpreted by the SAMW25 microcontroller updating every 100 milliseconds +/- 10 milliseconds.
 
-&nbsp; *We partially hit this requirement. We were able to get measurements from multiple photodiodes at the same time via I2C but the values seemed to remain stagnant or give garbage values which were of no use when trying to compute the difference between 2 channels.*
+&nbsp; *We partially hit this requirement. We had trouble configuring the 4C ADC IC that we had configured onboard. We were able to read from the desired register. However, we were getting values that did not entirely make sense. When the input and output pins were shorted together, effectively making a wire and showing that the "light" is high, we were able to get the maxiumum value (3300mV). Additionally, when we unplugged the pins, effectively making an open circuit and showing that the "light" is low, we were able to get a maximum low value of around 20mV. However, when connecting this to an actual photoresistor, the values did not change depending on the amount of light that was shined on it.*
 
 SRS 08 - The light intensity data shall be used in a feedback loop to correct the position of the solar panel toward a higher intensity of light every 100 milliseconds coinciding with the collection of new data.
 
@@ -134,7 +146,7 @@ SRS 09 - L298N motor driver shall be used for driving the servo motor with varyi
 
 |                                                |                                                |                                                 |
 | ---------------------------------------------- | ---------------------------------------------- | ----------------------------------------------- |
-| ![final project]()                               | ![pcb top](images/IMG_0260.JPG)                  | ![pcb bottom](images/IMG_0263.JPG)                |
+| ![final project](images/IMG_0282.JPG)            | ![pcb top](images/IMG_0260.JPG)                  | ![pcb bottom](images/IMG_0263.JPG)                |
 | ![thermal camera](images/thermal_image_1.jpeg)   | ![altium board 2D](images/twod_rendering.png)    | ![altium board 3D](images/threed_rendering.png)   |
 | ![node-red design](images/node_red_frontend.png) | ![node-red backend](images/node_red_backend.png) | ![system block diagram](images/block_diagram.png) |
 
