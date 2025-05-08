@@ -110,7 +110,7 @@ HRS 13 - A 3.7V Li-Ion battery shall be used to power the SAMW25 microcontroller
 
 SRS 01 - BMP or equivalent temperature sensor shall send data over I2C to the microcontroller once per 0.5 seconds +/- 100 milliseconds.
 
-&nbsp; *We partially hit this requirement by using the BMP388 temperature and pressure sensor to send the temperature values over I2C. We would get very fast values when using the CLI commands, however we were not able to implement it to automatically take readings otherwise due to time constraints.*
+&nbsp; *We partially hit this requirement by using the BMP388 temperature and pressure sensor to send the temperature values over I2C. We would get very fast values when using the CLI commands, however we were not able to implement it to automatically take readings otherwise due to time constraints. This was discussed in HRS 02.*
 
 SRS 02 - The temperature data shall actuate a fan if the temperature is above 20C.
 
@@ -118,15 +118,15 @@ SRS 02 - The temperature data shall actuate a fan if the temperature is above 20
 
 SRS 03 - INA219 or equivalent voltage sensor shall send data over I2C to the microcontroller once per 0.5 seconds +/- 100 milliseconds.
 
- *We hit this requirement by using the INA219 voltage sensor to send the bus voltage values to the MCU values over I2C.*
+ &nbsp; *We partially hit this requirement by using the INA219 voltage sensor to send the bus voltage values to the MCU values over I2C. We would get very fast values when using the CLI commands, however we were not able to implement it to automatically take readings otherwise due to time constraints.*
 
 SRS 04 - The voltage sensor shall actuate an LED if it is below 2V (after the initial charging phase).
 
- *We did not hit this requirement since we were not able to measure the charge within the battery, only the voltage that goes through that line to power the battery.*
+ &nbsp; *We did not hit this requirement since we were not able to measure the charge within the battery, only the voltage that goes through that line to power the battery.*
 
 SRS 06 - All sensor data shall be sent to the user interface from the SAMW25 microcontroller using WiFi, updating once per 0.5 seconds +/- 100 milliseconds.
 
-&nbsp; *We partially hit this requirement by using NODERED and MQTT to send data over WiFi and display to a UI via NODERED. We did face hiccups for the voltage sensor values being displayed but we were able to toggle the fan via NODERED.*
+&nbsp; *We partially hit this requirement by using NODERED and MQTT to send data over WiFi and display to a UI via NODERED. We did face hiccups for the voltage sensor values being displayed but we were able to toggle the fan via NODERED immediately as the button was pushed. The dashboard is shown in the final project images.*
 
 SRS 07 - The light intensity from the photodiodes shall be sent and interpreted by the SAMW25 microcontroller updating every 100 milliseconds +/- 10 milliseconds.
 
@@ -134,11 +134,11 @@ SRS 07 - The light intensity from the photodiodes shall be sent and interpreted 
 
 SRS 08 - The light intensity data shall be used in a feedback loop to correct the position of the solar panel toward a higher intensity of light every 100 milliseconds coinciding with the collection of new data.
 
-&nbsp; *We did not hit this requirement due to the photodiode giving us garbage values.*
+&nbsp; *We did not hit this requirement due to the photodiode giving us unsuable information. Therefore, it would have been impossible to interpret this information and use it to actuate our servo motors.*
 
 SRS 09 - L298N motor driver shall be used for driving the servo motor with varying speed and direction through PWM manipulation.
 
-&nbsp; *We hit this requirement by using a L9110S motor driver but unfortunately we fried the motor driver and we were not able to use it for the demo.*
+&nbsp; *We hit this requirement by using a L9110S motor driver but unfortunately we fried the motor driver that was onboard and we were not able to use it for the demo. Our other PCBs were not functionin correctly with UART and therefore if one component was broken on our main PCB, we could not pivot and use another.*
 
 ## 4. Project Photos & Screenshots
 
