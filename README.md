@@ -7,6 +7,8 @@
     * Description of test hardware: custom PCB, Windows 11
 
 ## 1. Video Presentation
+### Link to Video
+https://drive.google.com/file/d/1E8-OsmV1cfT8dB9I6PFPL8mY9DHs539P/view?usp=drive_link
 
 ## 2. Project Summary
 
